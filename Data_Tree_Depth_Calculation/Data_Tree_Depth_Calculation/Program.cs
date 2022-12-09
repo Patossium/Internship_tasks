@@ -13,15 +13,14 @@ namespace Program
         {
             Branch branches = new Branch();
             Random rand = new Random();
-            int count = 0;
             for(int i = 0; i < branchesToAdd; i++)
             {
-                branches.addBranch();
+                branches.AddBranch();
             }
-            int maxTreeDepth = branches.findTreeDepth(0);
+            int maxTreeDepth = branches.FindTreeDepth(0);
             Console.WriteLine("The maximum depth of the current randomly generated data tree is: {0}", maxTreeDepth);
 
-            branches.printTreeToConsole();
+            branches.PrintTreeToConsole();
         }
         class Branch
         {
@@ -30,26 +29,26 @@ namespace Program
             /// <summary>
             /// Recursively adds a set amount of branches to the data tree, however the depth is never known
             /// </summary>
-            public void addBranch()
+            public void AddBranch()
             {
                 Random rnd = new Random();
                 int randomBranchIndex = rnd.Next(maxBranchAmount);
                 if (branches.Count > randomBranchIndex)
                 {
-                    branches[randomBranchIndex].addBranch();
+                    branches[randomBranchIndex].AddBranch();
                 }
                 else
                 {
                     branches.Add(new Branch());
                 }
             }
-            public int findTreeDepth(int currentDepth)
+            public int FindTreeDepth(int currentDepth)
             {
                 int depth = currentDepth + 1;
                 int maxDepth = depth;
                 foreach (Branch branch in branches)
                 {
-                    int branchDepth = branch.findTreeDepth(depth);
+                    int branchDepth = branch.FindTreeDepth(depth);
                     if(branchDepth > maxDepth)
                     {
                         maxDepth = branchDepth;
@@ -57,9 +56,9 @@ namespace Program
                 }
                 return maxDepth;
             }
-            public void printTreeToConsole()
+            public void PrintTreeToConsole()
             {
-                printTreeToConsole();
+                
             }
         }
     }

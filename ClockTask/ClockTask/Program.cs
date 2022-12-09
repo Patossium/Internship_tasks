@@ -17,7 +17,7 @@ namespace ClockTask
             Console.WriteLine("Enter the value of the minute hand: ");
             minutes = double.TryParse(Console.ReadLine(), out inputMinute);
 
-            if (hours == false || minutes == false) //checks if the input was a number or not
+            if (!hours || !minutes) //checks if the input was a number or not
             {
                 Console.WriteLine("Please enter a number when defining the values of both clock hands");
                 return;
